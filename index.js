@@ -1,39 +1,25 @@
 // You are building a system that sends email reminders to users 5 seconds after they register. Create an async function sendReminder(email) that waits 5 seconds using setTimeout and then logs "Reminder sent to [email]". Simulate sending a reminder to 3 users.
-//  const sendReminder = (email)=>{
-//     return new Promise(function(resolve){
-//     setTimeout(() =>{
-//         resolve(`Reminder sent to ${email}`)
-//     }, 5000);
-//     })
-// };
-//   const  sendReminderAsync= async () =>{
-//     const users = ['makuto@gmail.com', 'shirley@gmail.com', 'dorothy@gmail.com'];
-    
-//     for (const email of users) {
-//         await sendReminder(email);
-//     }
-// };
 
-// sendReminderAsync();
-
-// // Define the async function to send reminders
+//Define the async function to send reminders
+//Create a setTimeout to wait for 5 seconds before logging a message
+//Log the reminder message to the user
+//Sending reminders to three users
+// Call the simulation function
 async function sendReminder(email) {
-    // Wait for 5 seconds
+    
     await new Promise(resolve => setTimeout(resolve, 5000));
-    // Log the reminder message
+    
     console.log(`Reminder sent to ${email}`);
 }
 
-// Simulate sending reminders to three users
 async function simulateReminders() {
-    const users = ['user1@example.com', 'user2@example.com', 'user3@example.com'];
+    const users = ['makuto@gmail.com', 'dorothy@gmail.com', 'emebet@gmail.com'];
     
     for (const email of users) {
         await sendReminder(email);
     }
 }
 
-// Call the simulation function
 simulateReminders();
 
 // You want to simulate a login system that tries to log in a user. The first two attempts fail, but the third succeeds. Write a function tryLogin() that uses a counter and Promises. Use setTimeout to simulate a 1-second delay between attempts. Log "Login successful" or "Login failed after 3 attempts" based on whether login succeeds.
@@ -42,12 +28,13 @@ simulateReminders();
 //Create a variable to start attempts at 0
 //Create another variable to hold maximum attempts at 3
 //Create a function to simulate the login process
-//Set a 
+//Create a setTimeout function to wait for a second before logging the message
+//Create a another function to handle the login attempts using a for loop
+// Call the tryLogin function to simulate the login process
 function tryLogin() {
     let attempts = 0; 
     const maxAttempts = 3; 
-    const correctPassword = "password123"; // Simulated correct password
-
+    const correctPassword = "password123"; 
     
     const loginAttempt = () => {
         return new Promise((resolve, reject) => {
@@ -60,16 +47,16 @@ function tryLogin() {
                     console.log("Login successful");
                     resolve("Login successful");
                 }
-            }, 1000); // 1 second delay
+            }, 1000); 
         });
     };
 
-    // Function to handle the login attempts
+    
     const handleLogin = async () => {
         for (let i = 0; i < maxAttempts; i++) {
             try {
                 await loginAttempt();
-                break; // Exit loop if login is successful
+                break;
             } catch (error) {
                 if (i === maxAttempts - 1) {
                     console.log("Login failed after 3 attempts");
@@ -81,7 +68,7 @@ function tryLogin() {
     handleLogin();
 }
 
-// Call the tryLogin function to simulate the login process
+
 tryLogin();
 
 
@@ -140,7 +127,7 @@ loadPage();
 // You are simulating fetching stock prices with delays. Write a function fetchPrice(symbol) that returns a Promise which resolves after 2 seconds with the message "Price for [symbol] retrieved". Use async/await to call it for two different stocks ("AAPL" and "GOOG") and log the messages in order.
 
 // Create a function to simulate fetching stock prices
-// Wait for 2 seconds
+// Create a setTimeout function to wait for 2 seconds
 // Create an async function to fetch prices for two stocks
 // Fetch the price for AAPL
 // Log a response for AAPL
